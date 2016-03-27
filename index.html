@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title>Dungeons and Darnings</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+      $(document).ready(function(){
+        var begin = alert("Welcome, adventurer, to the Patchwork Dungeon: resting place of ancient and powerful artifacts. For sewing. If you're into that kind of shit.");
+        var walking = alert("You light your lantern and start walking. Soon you find yourself at a fork in the path. Do you turn left or right?");
+        $("img").click(function(){
+          var dir = prompt("When is a door not a door?", "This one is hard, pick another door for an easier one.");
+        });
+              
+      });
+    </script>
+    <style>
+      body{
+        background-color: black;
+      }
+
+
+      h1{
+        /*width: 600px;*/
+        color: white;
+        font-family: serif;
+        display: block;
+        margin: auto;
+        margin-top: 5%;
+        text-align: center;
+      }
+      
+      .hidden{
+        visibility: none;
+      }
+
+      img{
+        height: 65px;
+        width: 65px;
+        display: block;
+        margin: 20px;
+      }
+
+
+      p{
+        border: solid blue 2px;
+        float: right;
+        margin-right: 20%;
+        height: 470px;
+        width: 520px;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1 class="hidden">Answer a riddle, click on a door: beyond them lies many a treasure of lore.</h1>
+    <img src="door.png" class="hidden" id="left">
+    <img src="door.png" class="hidden" id="middle">
+    <img src="door.png" class="hidden" id="right">
+  </body>
+</html>
