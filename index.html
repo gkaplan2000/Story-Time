@@ -1,13 +1,43 @@
 <html>
   <head>
-    <title>Dungeons and Darnings</title>
+    <title>Dungeons and Darning</title>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script>
       $(document).ready(function(){
         var begin = alert("Welcome, adventurer, to the Patchwork Dungeon: resting place of ancient and powerful artifacts. For sewing. If you're into that kind of shit.");
-        var walking = alert("You light your lantern and start walking. Soon you find yourself at a fork in the path. Do you turn left or right?");
+        flag = 1;
+        while(flag){
+          var walking = prompt("You light your lantern and start walking. Soon you find yourself at a fork in the path. Do you turn left or right?");
+          if((walking != "right") && (walking != "left")){
+            alert("Thats... not really a direction you can go? Try again.");
+          }
+          else{flag = 0;}
+        }
+        flag = 1;
+        for(i = 0; i<3; i++){
+          while(flag){
+            var walking = prompt("You turn " + walking + ". Soon you find yourself at another fork in the path. Do you turn left or right?");
+            if((walking != "right") && (walking != "left")){  
+              alert("Thats... not really a direction you can go? Try again.");
+            }
+            else{flag = 0;}
+          }
+        }
+        alert("You find a room with three doors. Woah!");
+        $(".hidden").removeClass('hidden');
+
         $("img").click(function(){
-          var dir = prompt("When is a door not a door?", "This one is hard, pick another door for an easier one.");
+          var dir = prompt("I have joy in bringing two together, but darning my existance! My life hangs by a thread, filled with ups, downs and resistance!", "The answer is 'a sewing machine'. Its a toughy.");
+          if(dir != "a sewing machine"){
+            alert("Oh come on! I told you the answer!");
+            alert("Thats it, no treasure for you. Idiot.");
+          }
+          else{
+            $("img").addClass('hidden');
+            $("h1").addClass('hidden');
+            $(".prize").removeClass('hidden');
+            $(".prize").removeClass('prize');
+          }
         });
               
       });
@@ -27,35 +57,47 @@
         margin-top: 5%;
         text-align: center;
       }
+
+      h2{
+        color: white;
+        font-family: serif;
+        display: block;
+        margin: auto;
+        text-align: center; 
+      }
       
       .hidden{
-        visibility: none;
+        display: none;
+      }
+
+      .visible{
+        display: inline;
+      }
+
+      .prize{
+        display: none;
+      }
+
+      #yarn{
+        margin-left: 42%;
       }
 
       img{
-        height: 65px;
-        width: 65px;
-        display: block;
-        margin: 20px;
+        display: inline;
+        height: 200px;
+        width: 150px;
+        margin: 10%;
       }
 
-
-      p{
-        border: solid blue 2px;
-        float: right;
-        margin-right: 20%;
-        height: 470px;
-        width: 520px;
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
 
     </style>
   </head>
   <body>
     <h1 class="hidden">Answer a riddle, click on a door: beyond them lies many a treasure of lore.</h1>
-    <img src="door.png" class="hidden" id="left">
-    <img src="door.png" class="hidden" id="middle">
-    <img src="door.png" class="hidden" id="right">
+    <img src="door.png" class="hidden">
+    <img src="door.png" class="hidden">
+    <img src="door.png" class="hidden">
+    <img src="prize.png" class="prize" id="yarn">
+    <h2 class="prize"> Nice! A Golden Treasure!</h2>
   </body>
 </html>
